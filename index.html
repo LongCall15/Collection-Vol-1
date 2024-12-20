@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Recipe Collection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff3e6;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .recipe-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        .recipe-details {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .recipe-details.active {
+            display: block;
+        }
+
+        .time-info {
+            color: #666;
+            font-size: 0.9em;
+            margin: 10px 0;
+        }
+
+        .submission-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #ff9933;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff8000;
+        }
+
+        .ingredients-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .ingredients-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .instructions {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Our Family Recipe Collection</h1>
+            <p>A treasure trove of delicious family recipes passed down through generations</p>
+        </div>
+
+        <div class="recipe-grid">
+            <div class="recipe-card" id="scalloped-potatoes">
+                <h2>Cheddar Parmesan Scalloped Red Potatoes</h2>
+                <div class="time-info">
+                    <p>Prep Time: 20 minutes | Cook Time: 50 minutes | Total Time: 1 hour 10 minutes</p>
+                    <p>Yield: 6 servings</p>
+                </div>
+                <button onclick="toggleRecipe('scalloped-potatoes-details')">View Recipe</button>
+                <div id="scalloped-potatoes-details" class="recipe-details">
+                    <h3>Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li><span>Red Potatoes (sliced thin)</span> <span>1 1/2 lb</span></li>
+                        <li><span>Unsalted butter</span> <span>3 tbsp</span></li>
+                        <li><span>Flour</span> <span>3 cup</span></li>
+                        <li><span>Dried garlic</span> <span>1/2 tsp</span></li>
+                        <li><span>Salt</span> <span>1/2 tsp</span></li>
+                        <li><span>Pepper</span> <span>1/8 tsp</span></li>
+                        <li><span>Milk</span> <span>2 cup</span></li>
+                        <li><span>Cheddar Cheese</span> <span>1 1/4 cup</span></li>
+                        <li><span>Parmesan Cheese</span> <span>2/3 cup</span></li>
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <ol class="instructions">
+                        <li>Preheat oven to 400ºF.</li>
+                        <li>Melt the butter in a sauce pan over medium heat until it is beginning to bubble, add the flour and the spices. Mix well and cook until the mixture has bubbled for one minute.</li>
+                        <li>Reduce the heat to low, slowly add in the milk, stirring constantly, so that a sauce forms without lumps. Heat to medium and bring the mixture up to a gentle simmer for one minute, then remove it from the heat.</li>
+                        <li>Stir in the shredded cheddar and parmesan cheese until evenly combined.</li>
+                        <li>Lightly grease a 9x13 pan with butter, arrange half of the potatoes along the bottom. Evenly coat the potatoes with half of the creamy sauce. Arrange the rest of the potatoes and coat with the remaining sauce.</li>
+                        <li>Bake for 45-55 minutes</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="recipe-card" id="sweet-potato-casserole">
+                <h2>Sweet Potato Casserole</h2>
+                <div class="time-info">
+                    <p>Prep Time: 20 minutes | Cook Time: 45 minutes | Total Time: 1 hour 5 minutes</p>
+                    <p>Yield: 10 servings</p>
+                </div>
+                <button onclick="toggleRecipe('sweet-potato-casserole-details')">View Recipe</button>
+                <div id="sweet-potato-casserole-details" class="recipe-details">
+                    <h3>Casserole Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li><span>Sweet Potatoes</span> <span>4 cup</span></li>
+                        <li><span>Large Eggs</span> <span>2</span></li>
+                        <li><span>Sugar</span> <span>1/2 cup</span></li>
+                        <li><span>Milk</span> <span>1/2 cup</span></li>
+                        <li><span>Butter (softened)</span> <span>4 tbsp</span></li>
+                        <li><span>Vanilla Extract</span> <span>1/2 tsp</span></li>
+                        <li><span>Salt</span> <span>1/2 tsp</span></li>
+                    </ul>
+                    <h3>Topping Ingredients:</h3>
+                    <ul class="ingredients-list">
+                        <li><span>Brown Sugar</span> <span>1/2 cup</span></li>
+                        <li><span>Flour</span> <span>1/3 cup</span></li>
+                        <li><span>Butter (softened)</span> <span>3 tbsp</span></li>
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <ol class="instructions">
+                        <li>Cook and mash the sweet potatoes, add eggs; mix well. Add sugar, milk, butter, vanilla, and salt; mix until smooth. Transfer to a 9x13-inch baking dish.</li>
+                        <li>To make the topping: Mix brown sugar and flour together in a medium bowl. Cut in butter with a pastry cutter until mixture is coarse and looks like peas; don't overmix. Sprinkle topping over sweet potato mixture.</li>
+                        <li>Bake in the preheated oven until topping is lightly browned, about 30 minutes.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="submission-form">
+            <h2>Share Your Recipe</h2>
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                <div class="form-group">
+                    <label for="recipeName">Recipe Name:</label>
+                    <input type="text" id="recipeName" name="recipeName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="submitterName">Your Name:</label>
+                    <input type="text" id="submitterName" name="submitterName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ingredients">Ingredients:</label>
+                    <textarea id="ingredients" name="ingredients" rows="5" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="instructions">Instructions:</label>
+                    <textarea id="instructions" name="instructions" rows="5" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Family Notes or Stories (Optional):</label>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+                </div>
+
+                <button type="submit">Submit Recipe</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleRecipe(recipeId) {
+            const recipeDetails = document.getElementById(recipeId);
+            const allDetails = document.getElementsByClassName('recipe-details');
+            
+            // Close all other recipe details
+            for(let detail of allDetails) {
+                if(detail.id !== recipeId) {
+                    detail.classList.remove('active');
+                }
+            }
+            
+            // Toggle the clicked recipe
+            recipeDetails.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
